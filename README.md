@@ -31,7 +31,7 @@ cd bijoyLinux
 Copy the `.m17n.d` configuration files to your home directory:
 
 ```bash
-cp -rvf ./.m17n.d ~/
+cp -rvf ./m17n.d ~/.m17n.d
 ```
 
 ### Step 3: Enable Virtual Keyboard
