@@ -61,8 +61,7 @@ Add the following Bijoy Bangla layouts:
 
 ### Modifications
 
-This repository contains modified versions of `bn-bijoyClassic.mim` and `bn-bijoyUnicode.mim`, originally provided by Ananda Computers at [bijoyekushe.net.bd](https://bijoyekushe.net.bd/index.php?action=bijoy_linux). All rights of these files are to copyright © Mustafa Jabbar.
-
+This repository contains modified versions of `bn-bijoyClassic.mim` and `bn-bijoyUnicode.mim`, originally provided by Ananda Computers at [bijoyekushe.net.bd](https://bijoyekushe.net.bd/index.php?action=bijoy_linux). All rights of these files are copyrighted © Mustafa Jabbar.
 The following modifications were made to address various issues and discrepancies with the Windows version of the Bijoy Keyboard:
 1. Fixed mapping for `_`, which was previously pointed to "থ".
 2. Fixed mapping for `'`, which was previously broken.
