@@ -2,6 +2,8 @@
 
 This repository contains instructions and configuration files for setting up the Bijoy Bangla keyboard on Linux systems using either IBus or Fcitx5 input method frameworks.
 
+লিনাক্সে বাংলা ব্যবহারকারীদের জন্য বিজয় -এর এনকোডিং পদ্ধতিতে বিজয় কিবোর্ড ব্যবহার করে বাংলা লেখার ব্যবস্থা করা হয়েছে। এই ব্যবস্থায় বিজয় বাংলা সফটওয়্যারের প্রচলিত ফন্টগুলো ব্যবহার করা যাবে এবং লিনাক্সে তৈরি করা ডকুমেন্ট উইন্ডোজ এবং মেকিন্টোসের বিজয় -এ আদান প্রদান করা যাবে।
+
 ## Prerequisites
 
 To install the necessary input method frameworks and the Bijoy Bangla keyboard layout, follow the steps below based on your Linux distribution.
@@ -18,10 +20,9 @@ sudo apt install ibus ibus-m17n fcitx5-m17n fcitx5 fcitx5-config-qt
 sudo pacman -S ibus ibus-m17n fcitx5-m17n fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk
 ```
 
-
 ### Step 2: Copy Configuration Files
 
-Download or Clone repo
+Download or clone the repository:
 
 ```bash
 git clone https://github.com/nazdridoy/bijoyLinux.git
@@ -55,8 +56,18 @@ Depending on the input method you are using (IBus or Fcitx5), follow the steps b
 ### Step 4: Add Keyboard Layout
 
 Add the following Bijoy Bangla layouts:
-- `bn-bijoyClassic` (for ANSI font: SutonnyMJ )
-- `bn-bijoyUnicode` (for Unicode font: NikoshBAN )
+- `bn-bijoyClassic` (for ANSI font: SutonnyMJ)
+- `bn-bijoyUnicode` (for Unicode font: SutonnyOMJ)
+
+### Modifications
+
+This repository contains modified versions of `bn-bijoyClassic.mim` and `bn-bijoyUnicode.mim`, originally provided by Ananda Computers at [bijoyekushe.net.bd](https://bijoyekushe.net.bd/index.php?action=bijoy_linux). All rights of these files are to copyright © Mustafa Jabbar.
+
+The following modifications were made to address various issues and discrepancies with the Windows version of the Bijoy Keyboard:
+1. Fixed mapping for `_`, which was previously pointed to "থ".
+2. Fixed mapping for `'`, which was previously broken.
+3. Fixed mapping for `"`, which was previously broken.
+4. Added a built-in Smart Quotes feature.
 
 ### Troubleshooting
 
