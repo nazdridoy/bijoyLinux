@@ -67,6 +67,12 @@
 ("jgV" "K¬") 
 ("jgVs" "K¬z") 
 ("jgNgb" "ÿè")
+
+("jgNgB" "¶è")
+("jgNgBs" "¶èy")
+("jgNgBS" "¶è~")
+("jgNgBa" "¶è„")
+
 ("jgNgd" "ÿB")
 ("jgNgD" "ÿC")
 ("jgNgs" "ÿD")
@@ -341,7 +347,7 @@
 ("nghs" "¯^y") 
 ("us" "Ry") 
 
-(" c" "†") 
+(" c" "†")
 (" C" "ˆ") 
 ("gg" "&") 
 
