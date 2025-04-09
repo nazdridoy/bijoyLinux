@@ -17,7 +17,7 @@ done="[${cyan} DONE ${end}]"
 ask="[${orange} QUESTION ${end}]"
 error="[${red} ERROR ${end}]"
 
-#====================[ Display Banner ]====================#
+#====================[ Display Header ]====================#
 display_text() {
     cat << "EOF"
  ____  _  _
@@ -46,7 +46,7 @@ if [[ ! -f "$log" ]]; then
     touch "$log"
 fi
 
-#====================[ Package Manager Detection ]====================#
+#====================[ Detect Package Manager ]====================#
 if command -v pacman &> /dev/null; then
     pkg="pacman"
 elif command -v dnf &> /dev/null; then
@@ -66,24 +66,24 @@ else
     exit 1
 fi
 
-#====================[ Fcitx5 Installation ]====================#
+#====================[ Install Required Packages ]====================#
 printf "${attention}\n!! Installing necessary packages using ${pkg}...\n"
 
 case "$pkg" in
     pacman)
-        sudo pacman -S --noconfirm fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx5-m17n git
+        sudo pacman -S --noconfirm fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk git
         ;;
     dnf)
-        sudo dnf install -y git fcitx5 fcitx5-configtool fcitx5-m17n fcitx5-qt5
+        sudo dnf install -y git fcitx5 fcitx5-configtool fcitx5-devel fcitx5-qt5
         ;;
     zypper)
-        sudo zypper in -y git fcitx5-devel fcitx5 fcitx5-configtool fcitx5-m17n
+        sudo zypper in -y git fcitx5-devel fcitx5 fcitx5-configtool
         ;;
     xbps-install)
-        sudo xbps-install -y fcitx5 fcitx5-configtool fcitx5-m17n git
+        sudo xbps-install -y fcitx5 libfcitx5-devel fcitx5-configtool
         ;;
     apt)
-        sudo apt install -y fcitx5 fcitx5-config-qt git fcitx5-m17n
+        sudo apt install -y fcitx5 fcitx5-config-qt git
         ;;
     *)
         printf "${error}\n! Unsupported package manager: $pkg\n"
@@ -102,10 +102,19 @@ cd bijoy-modified || {
     exit 1
 }
 
-#====================[ Copy m17n.d Files ]====================#
+#====================[ Copy m17n.d Files and Icons ]====================#
 if [ -d "m17n.d" ]; then
     printf "${action} Copying m17n.d contents to /usr/share/m17n/ ...\n"
-    sudo cp -v m17n.d/* /usr/share/m17n/
+
+    # Copy .mim files
+    sudo cp -v m17n.d/*.mim /usr/share/m17n/
+
+    # Copy icons if they exist
+    if [ -d "m17n.d/icons" ]; then
+        printf "${action} Copying icons to /usr/share/m17n/icons/ ...\n"
+        sudo mkdir -p /usr/share/m17n/icons
+        sudo cp -v m17n.d/icons/* /usr/share/m17n/icons/
+    fi
 else
     printf "${error} m17n.d directory not found!\n"
 fi

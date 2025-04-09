@@ -17,9 +17,10 @@ done="[${cyan} DONE ${end}]"
 ask="[${orange} QUESTION ${end}]"
 error="[${red} ERROR ${end}]"
 
-#====================[ Display Header ]====================#
+#====================[ Display Banner ]====================#
 display_text() {
     cat << "EOF"
+
  ____  _  _
 | __ )(_)(_) ___  _   _
 |  _ \| || |/ _ \| | | |
@@ -32,6 +33,7 @@ display_text() {
 | . \  __/ |_| | |_) | (_) | (_| | | | (_| |
 |_|\_\___|\__, |_.__/ \___/ \__,_|_|  \__,_|
           |___/
+
 EOF
 }
 
@@ -46,7 +48,7 @@ if [[ ! -f "$log" ]]; then
     touch "$log"
 fi
 
-#====================[ Detect Package Manager ]====================#
+#====================[ Package Manager Detection ]====================#
 if command -v pacman &> /dev/null; then
     pkg="pacman"
 elif command -v dnf &> /dev/null; then
@@ -66,24 +68,24 @@ else
     exit 1
 fi
 
-#====================[ Install Required Packages ]====================#
+#====================[ Fcitx5 Installation ]====================#
 printf "${attention}\n!! Installing necessary packages using ${pkg}...\n"
 
 case "$pkg" in
     pacman)
-        sudo pacman -S --noconfirm fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk git
+        sudo pacman -S --noconfirm ibus ibus-m17n git
         ;;
     dnf)
-        sudo dnf install -y git fcitx5 fcitx5-configtool fcitx5-devel fcitx5-qt5
+        sudo dnf install -y git ibus ibus-m17n
         ;;
     zypper)
-        sudo zypper in -y git fcitx5-devel fcitx5 fcitx5-configtool
+        sudo zypper in -y git ibus ibus-m17n
         ;;
     xbps-install)
-        sudo xbps-install -y fcitx5 libfcitx5-devel fcitx5-configtool
+        sudo xbps-install -y ibus ibus-m17n git
         ;;
     apt)
-        sudo apt install -y fcitx5 fcitx5-config-qt git
+        sudo apt install -y git ibus ibus-m17n
         ;;
     *)
         printf "${error}\n! Unsupported package manager: $pkg\n"
@@ -118,18 +120,6 @@ if [ -d "m17n.d" ]; then
 else
     printf "${error} m17n.d directory not found!\n"
 fi
-
-#====================[ Display Font Banner ]====================#
-printf "\n"
-cat << "EOF"
- ___           _        _ _ _               _____           _
-|_ _|_ __  ___| |_ __ _| | (_)_ __   __ _  |  ___|__  _ __ | |_ ___
- | || '_ \/ __| __/ _` | | | | '_ \ / _` | | |_ / _ \| '_ \| __/ __|
- | || | | \__ \ || (_| | | | | | | | (_| | |  _| (_) | | | | |_\__ \
-|___|_| |_|___/\__\__,_|_|_|_|_| |_|\__, | |_|  \___/|_| |_|\__|___/
-                                    |___/
-EOF
-printf "\n"
 
 #====================[ Install Fonts ]====================#
 printf "${action} Installing ANSI and Unicode fonts...\n"
