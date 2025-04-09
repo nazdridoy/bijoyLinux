@@ -4,40 +4,23 @@ This repository contains instructions and configuration files for setting up the
 
 লিনাক্সে বাংলা ব্যবহারকারীদের জন্য বিজয় -এর এনকোডিং পদ্ধতিতে বিজয় কিবোর্ড ব্যবহার করে বাংলা লেখার ব্যবস্থা করা হয়েছে। এই ব্যবস্থায় বিজয় বাংলা সফটওয়্যারের প্রচলিত ফন্টগুলো ব্যবহার করা যাবে এবং লিনাক্সে তৈরি করা ডকুমেন্ট উইন্ডোজ এবং মেকিন্টোসের বিজয় -এ আদান প্রদান করা যাবে।
 
-## Prerequisites
+== সহজ ইন্সটল পদ্ধতি
 
-To install the necessary input method frameworks and the Bijoy Bangla keyboard layout, follow the steps below based on your Linux distribution.
-
-### Step 1: Install IBus/Fcitx5 and M17N Engine
-
-#### Debian/Ubuntu
+=== fcitx5 এর জন্যে
+টার্মিনাল ওপেন করে নিচের কমান্ডটি কপি করে টার্মিনালে পেস্ট করুনঃ
 ```bash
-sudo apt install ibus ibus-m17n fcitx5-m17n fcitx5 fcitx5-config-qt
+bash -c "$(wget -q https://raw.githubusercontent.com/asifakonjee/bijoy-modified/master/fcitx5.sh -O -)"
 ```
 
-#### Arch Linux
+=== ibus এর জন্যে
+টার্মিনাল ওপেন করে নিচের কমান্ডটি কপি করে টার্মিনালে পেস্ট করুনঃ
 ```bash
-sudo pacman -S ibus ibus-m17n fcitx5-m17n fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk
-```
-
-### Step 2: Copy Configuration Files
-
-Download or clone the repository:
-
-```bash
-git clone https://github.com/nazdridoy/bijoyLinux.git
-cd bijoyLinux
-```
-
-Copy the `.m17n.d` configuration files to your home directory:
-
-```bash
-cp -rvf ./m17n.d ~/.m17n.d
+bash -c "$(wget -q https://raw.githubusercontent.com/asifakonjee/bijoy-modified/master/ibus.sh -O -)"
 ```
 
 ### Step 3: Enable Virtual Keyboard
 
-Depending on the input method you are using (IBus or Fcitx5), follow the steps below to enable the virtual keyboard.
+Depending on the input method you are using (IBus or Fcitx5), follow the steps below to enable the virtual keyboard in WAYLAND Session.
 
 #### IBus Setup
 1. Open a terminal and run:
