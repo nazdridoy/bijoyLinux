@@ -20,7 +20,7 @@ bash -c "$(wget -q https://raw.githubusercontent.com/asifakonjee/bijoy-modified/
 
 ## Enable Virtual Keyboard
 
-Depending on the input method you are using (IBus or Fcitx5), follow the steps below to enable the virtual keyboard in WAYLAND Session.
+Depending on the input method you are using (IBus or Fcitx5), follow the steps below to enable the virtual keyboard.
 
 #### IBus Setup
 1. Open a terminal and run:
