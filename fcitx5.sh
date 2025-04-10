@@ -71,19 +71,19 @@ printf "${attention}\n!! Installing necessary packages using ${pkg}...\n"
 
 case "$pkg" in
     pacman)
-        sudo pacman -S --noconfirm fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk git
+        sudo pacman -S --noconfirm git fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx5-m17n
         ;;
     dnf)
-        sudo dnf install -y git fcitx5 fcitx5-configtool fcitx5-devel fcitx5-qt5
+        sudo dnf install -y git fcitx5 fcitx5-configtool fcitx5-devel fcitx5-qt5 fcitx5-m17n
         ;;
     zypper)
-        sudo zypper in -y git fcitx5-devel fcitx5 fcitx5-configtool
+        sudo zypper in -y git fcitx5-devel fcitx5 fcitx5-configtool fcitx5-m17n
         ;;
     xbps-install)
-        sudo xbps-install -y fcitx5 libfcitx5-devel fcitx5-configtool
+        sudo xbps-install -y git fcitx5 libfcitx5-devel fcitx5-configtool fcitx5-m17n
         ;;
     apt)
-        sudo apt install -y fcitx5 fcitx5-config-qt git
+        sudo apt install -y git fcitx5 fcitx5-config-qt fcitx5-m17n
         ;;
     *)
         printf "${error}\n! Unsupported package manager: $pkg\n"

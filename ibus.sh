@@ -73,7 +73,7 @@ printf "${attention}\n!! Installing necessary packages using ${pkg}...\n"
 
 case "$pkg" in
     pacman)
-        sudo pacman -S --noconfirm ibus ibus-m17n git
+        sudo pacman -S --noconfirm git ibus ibus-m17n
         ;;
     dnf)
         sudo dnf install -y git ibus ibus-m17n
@@ -82,7 +82,7 @@ case "$pkg" in
         sudo zypper in -y git ibus ibus-m17n
         ;;
     xbps-install)
-        sudo xbps-install -y ibus ibus-m17n git
+        sudo xbps-install -y git ibus ibus-m17n
         ;;
     apt)
         sudo apt install -y git ibus ibus-m17n
