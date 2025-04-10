@@ -18,7 +18,7 @@ bash -c "$(wget -q https://raw.githubusercontent.com/asifakonjee/bijoy-modified/
 bash -c "$(wget -q https://raw.githubusercontent.com/asifakonjee/bijoy-modified/master/ibus.sh -O -)"
 ```
 
-### Step 3: Enable Virtual Keyboard
+=== Enable Virtual Keyboard
 
 Depending on the input method you are using (IBus or Fcitx5), follow the steps below to enable the virtual keyboard in WAYLAND Session.
 
@@ -36,13 +36,13 @@ Depending on the input method you are using (IBus or Fcitx5), follow the steps b
    ```
 2. In the Fcitx5 configuration window, add the desired keyboard layout.
 
-### Step 4: Add Keyboard Layout
+=== Add Keyboard Layout
 
 Add the following Bijoy Bangla layouts:
 - `bn-bijoyClassic` (for ANSI font: SutonnyMJ)
 - `bn-bijoyUnicode` (for Unicode font: SutonnyOMJ)
 
-### Modifications
+=== Modifications
 
 This repository contains modified versions of `bn-bijoyClassic.mim` and `bn-bijoyUnicode.mim`, originally provided by Ananda Computers at [bijoyekushe.net.bd](https://bijoyekushe.net.bd/index.php?action=bijoy_linux). All rights of these files are to copyright © Mustafa Jabbar.
 
@@ -52,11 +52,11 @@ The following modifications were made to address various issues and discrepancie
 3. Fixed mapping for `"`, which was previously broken.
 4. Added a built-in Smart Quotes feature.
 
-### Troubleshooting
+=== Troubleshooting
 
 - Make sure you have restarted your session or input method daemon after installation to reflect the changes.
 - If the virtual keyboard is not working, ensure that the input method framework (IBus or Fcitx5) is properly set as the default input method.
 
-## Contributing
+== Contributing
 
 Feel free to open issues or submit pull requests if you encounter any problems or have suggestions for improvement.
