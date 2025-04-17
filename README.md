@@ -72,3 +72,13 @@ This repository contains modified versions of `bn-bijoyClassic.mim` and `bn-bijo
 ## Contributing
 
 Feel free to open issues or submit pull requests if you encounter any problems or have suggestions for improvement.
+
+## Credits
+
+Modified by [nazdridoy](https://github.com/nazdridoy)
+
+## Support
+
+If you encounter any issues or have suggestions:
+- [Open an issue](https://github.com/nazdridoy/bijoyLinux/issues)
+- [Submit a pull request](https://github.com/nazdridoy/bijoyLinux/pulls)
