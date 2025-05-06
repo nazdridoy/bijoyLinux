@@ -72,4 +72,4 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -t rsa codeberg.org >> ~/.ssh/known_hosts
           # Push local branches and tags, excluding remote refs
-          git push --force ${TARGET_URL} 'refs/heads/*:refs/heads/*' 'refs/tags/*:refs/tags/*'  
+          git push --force ${TARGET_URL} 'refs/heads/*:refs/heads/*' 'refs/tags/*:refs/tags/*'
